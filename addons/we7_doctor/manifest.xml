@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="0.6">
+	<application setting="true">
+		<name><![CDATA[医生]]></name>
+		<identifie><![CDATA[we7_doctor]]></identifie>
+		<version><![CDATA[0.1]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[医生信息管理，包括增、删、改、查、列表等功能]]></ability>
+		<description><![CDATA[医生信息管理，包括增、删、改、查、列表等功能]]></description>
+		<author><![CDATA[Garfield]]></author>
+		<url><![CDATA[http://bbs.we7.cc/]]></url>
+	</application>
+	<platform>
+		<subscribes>
+			<message type="text" />
+			<message type="image" />
+			<message type="voice" />
+			<message type="video" />
+			<message type="shortvideo" />
+			<message type="location" />
+			<message type="link" />
+			<message type="subscribe" />
+			<message type="unsubscribe" />
+			<message type="qr" />
+			<message type="trace" />
+			<message type="click" />
+			<message type="view" />
+			<message type="merchant_order" />
+		</subscribes>
+		<handles>
+			<message type="image" />
+			<message type="voice" />
+			<message type="video" />
+			<message type="shortvideo" />
+			<message type="location" />
+			<message type="link" />
+			<message type="subscribe" />
+			<message type="qr" />
+			<message type="trace" />
+			<message type="click" />
+			<message type="merchant_order" />
+			<message type="text" />
+		</handles>
+		<rule embed="true" />
+		<card embed="false" />
+	</platform>
+	<bindings>
+		<cover>
+			<entry title="医生入口" do="index" state="index" direct="false" />
+		</cover>
+		<rule>
+			<entry title="规则列表" do="rule1" state="ruledata1" direct="false" />
+			<entry title="规则列表2" do="rule2" state="ruledata2" direct="true" />
+		</rule>
+		<menu>
+			<entry title="医生列表" do="lists" state="lists" direct="false" />
+		</menu>
+		<home>
+			<entry title="微站首页导航图标1" do="nevindex1" state="" direct="false" />
+		</home>
+		<profile>
+			<entry title="微站个人中心导航1" do="user1" state="" direct="false" />
+		</profile>
+		<shortcut>
+			<entry title="微站快捷功能导航1" do="shortcut1" state="" direct="false" />
+		</shortcut>
+		<function>
+			<entry title="微站独立功能1" do="indenfunc1" state="" direct="false" />
+		</function>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>

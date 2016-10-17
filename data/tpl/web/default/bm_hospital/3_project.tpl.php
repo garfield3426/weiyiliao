@@ -1,0 +1,304 @@
+<?php defined('IN_IA') or exit('Access Denied');?><?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('common/header', TEMPLATE_INCLUDEPATH)) : (include template('common/header', TEMPLATE_INCLUDEPATH));?>
+<ul class="nav nav-tabs">
+  <li <?php  if($op == 'display') { ?>class="active"<?php  } ?>>
+    <a href="<?php  echo $this->createWebUrl('project', array('op' => 'display'))?>">医生管理</a>
+  </li>
+  <li <?php  if($op == 'post') { ?>class="active"<?php  } ?>>
+    <a href="<?php  echo $this->createWebUrl('project', array('op' => 'post'))?>">新增医生</a>
+  </li>
+</ul>
+<?php  if($op == 'post') { ?>
+<div class="panel panel-default">
+	<div class="panel-heading">
+     	医生设置
+    </div>
+	<div class="panel-body">
+		<form action="" class="form-horizontal form" method="post" enctype="multipart/form-data" >
+			<input type="hidden" name="id" value="<?php  echo $item['id'];?>">
+			<div class="panel panel-default">
+			<div class="panel-body">
+			 	<div class="form-group">
+			 		<label class="col-xs-12 col-sm-3 col-md-2 control-label">排序</label>
+			 		<div class="col-sm-9">
+			 			 <input type="text" name="sort" class="form-control" value="<?php  echo $item['sort'];?>" />
+			 		</div>
+			 	</div>
+			 	<div class="form-group">
+			 		<label class="col-xs-12 col-sm-3 col-md-2 control-label">医生名称</label>
+			 		<div class="col-sm-8">
+						<input type="text" name="ser_name" class="form-control" value="<?php  echo $item['ser_name'];?>" />
+			 		</div>
+			 	</div>
+			 	<div class="form-group">
+			 		<label class="col-xs-12 col-sm-3 col-md-2 control-label">所属医院</label>
+			 		<div class="col-sm-9">
+						<select name='classify_id'>
+							<option value='-1'>请选择</option>
+							<?php  if(is_array($classify)) { foreach($classify as $class) { ?>
+							<option value='<?php  echo $class['id'];?>' <?php  if($item['classify_id'] == $class['id']) { ?>selected<?php  } ?>><?php  echo $class['ser_window'];?></option>
+							<?php  } } ?>
+						</select>
+			 		</div>
+			 	</div>
+			 	<div class="form-group">
+			 		<label class="col-xs-12 col-sm-3 col-md-2 control-label">选择科室</label>
+			 		<div class="col-sm-9">
+						<select name='classify_id'>
+							<option value='-1'>请选择</option>
+							<?php  if(is_array($classify)) { foreach($classify as $class) { ?>
+							<option value='<?php  echo $class['id'];?>' <?php  if($item['classify_id'] == $class['id']) { ?>selected<?php  } ?>><?php  echo $class['ser_window'];?></option>
+							<?php  } } ?>
+						</select>
+			 		</div>
+			 	</div>
+			 	<div class="form-group">
+			 		<label class="col-xs-12 col-sm-3 col-md-2 control-label">医生职务</label>
+			 		<div class="col-sm-9">
+						<select name='classify_id'>
+							<option value='-1'>请选择</option>
+							<?php  if(is_array($classify)) { foreach($classify as $class) { ?>
+							<option value='<?php  echo $class['id'];?>' <?php  if($item['classify_id'] == $class['id']) { ?>selected<?php  } ?>><?php  echo $class['ser_window'];?></option>
+							<?php  } } ?>
+						</select>
+			 		</div>
+			 	</div>
+			 	<div class="form-group">
+			 		<label class="col-xs-12 col-sm-3 col-md-2 control-label">医生职称</label>
+			 		<div class="col-sm-9">
+						<select name='classify_id'>
+							<option value='-1'>请选择</option>
+							<?php  if(is_array($classify)) { foreach($classify as $class) { ?>
+							<option value='<?php  echo $class['id'];?>' <?php  if($item['classify_id'] == $class['id']) { ?>selected<?php  } ?>><?php  echo $class['ser_window'];?></option>
+							<?php  } } ?>
+						</select>
+			 		</div>
+			 	</div>
+			 	<div class="form-group">
+			 		<label class="col-xs-12 col-sm-3 col-md-2 control-label">医生介绍</label>
+			 		<div class="col-sm-8">
+						<input type="text" name="kbox" class="form-control" value="<?php  echo $item['kbox'];?>" />
+			 		</div>
+			 	</div>				
+			 	<div class="form-group">
+			 		<label class="col-xs-12 col-sm-3 col-md-2 control-label">医生照片</label>
+			 		<div class="col-sm-8">
+						 <?php  echo tpl_form_field_image('classify_picurl', $item['classify_picurl'])?>
+			 		</div>
+			 	</div>
+			 	<div class="form-group">
+			 		<label class="col-xs-12 col-sm-3 col-md-2 control-label">门诊时间</label>
+			 		<div class="col-sm-8">
+			 			<textarea name="srvtime" class="form-control" id="reply-add-text" cols="50"><?php  echo $item['srvtime'];?></textarea>
+			 			
+			 		</div>
+			 	</div>	
+			 	<div class="form-group">
+			 		<label class="col-xs-12 col-sm-3 col-md-2 control-label">是否可预约</label>
+			 		<div class="col-sm-8">
+						<select name='ishow'>
+							<option value='-1'>请选择</option>
+							<option value='1' <?php  if($item['ishow'] == '1') { ?>selected<?php  } ?>>是</option>
+							<option value='2' <?php  if($item['ishow'] == '2') { ?>selected<?php  } ?>>否</option>
+						</select>	
+			 		</div>
+			 	</div>
+			 	<div class="form-group">
+			 		<label class="col-xs-12 col-sm-3 col-md-2 control-label">接受预约人数</label>
+			 		<div class="col-sm-8">
+						<input type="text" name="total" class="form-control" value="<?php  echo $item['total'];?>" />
+			 		</div>
+			 	</div>	
+			 	<div class="form-group">
+					<label class="col-xs-12 col-sm-4 col-md-3 col-lg-2 control-label">内容</label>
+					<div class="col-sm-8 col-xs-12">
+						<script type="text/javascript" src="./resource/components/ueditor/ueditor.config.js"></script><script type="text/javascript" src="./resource/components/ueditor/ueditor.all.min.js"></script><script type="text/javascript" src="./resource/components/ueditor/lang/zh-cn/zh-cn.js"></script><textarea id="content" name="content" type="text/plain" style="height:500px;"></textarea>
+						<script type="text/javascript">
+						var ueditoroption = {
+							'autoClearinitialContent' : false,
+							'toolbars' : [['fullscreen', 'source', 'preview', '|', 'bold', 'italic', 'underline', 'strikethrough', 'forecolor', 'backcolor', '|',
+								'justifyleft', 'justifycenter', 'justifyright', '|', 'insertorderedlist', 'insertunorderedlist', 'blockquote', 'emotion',
+								'link', 'removeformat', '|', 'rowspacingtop', 'rowspacingbottom', 'lineheight','indent', 'paragraph', 'fontsize', '|',
+								'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol',
+								'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', '|', 'anchor', 'map', 'print', 'drafts']],
+							'elementPathEnabled' : false,
+							'initialFrameHeight': 200,
+							'focus' : false,
+							'maximumWords' : 9999999999999
+						};
+						var opts = {
+							type :'image',
+							direct : false,
+							multiple : true,
+							tabs : {
+								'upload' : 'active',
+								'browser' : '',
+								'crawler' : ''
+							},
+							path : '',
+							dest_dir : '',
+							global : false,
+							thumb : false,
+							width : 0
+						};
+						UE.registerUI('myinsertimage',function(editor,uiName){
+							editor.registerCommand(uiName, {
+								execCommand:function(){
+									require(['fileUploader'], function(uploader){
+										uploader.show(function(imgs){
+											if (imgs.length == 0) {
+												return;
+											} else if (imgs.length == 1) {
+												editor.execCommand('insertimage', {
+													'src' : imgs[0]['url'],
+													'_src' : imgs[0]['attachment'],
+													'width' : '100%',
+													'alt' : imgs[0].filename
+												});
+											} else {
+												var imglist = [];
+												for (i in imgs) {
+													imglist.push({
+														'src' : imgs[i]['url'],
+														'_src' : imgs[i]['attachment'],
+														'width' : '100%',
+														'alt' : imgs[i].filename
+													});
+												}
+												editor.execCommand('insertimage', imglist);
+											}
+										}, opts);
+									});
+								}
+							});
+							var btn = new UE.ui.Button({
+								name: '插入图片',
+								title: '插入图片',
+								cssRules :'background-position: -726px -77px',
+								onclick:function () {
+									editor.execCommand(uiName);
+								}
+							});
+							editor.addListener('selectionchange', function () {
+								var state = editor.queryCommandState(uiName);
+								if (state == -1) {
+									btn.setDisabled(true);
+									btn.setChecked(false);
+								} else {
+									btn.setDisabled(false);
+									btn.setChecked(state);
+								}
+							});
+							return btn;
+						}, 19);
+						UE.registerUI('myinsertvideo',function(editor,uiName){
+							editor.registerCommand(uiName, {
+								execCommand:function(){
+									require(['fileUploader'], function(uploader){
+										uploader.show(function(video){
+											if (!video) {
+												return;
+											} else {
+												var videoType = video.isRemote ? 'iframe' : 'video';
+												editor.execCommand('insertvideo', {
+													'url' : video.url,
+													'width' : 300,
+													'height' : 200
+												}, videoType);
+											}
+										}, {type : 'video', allowUploadVideo : true});
+									});
+								}
+							});
+							var btn = new UE.ui.Button({
+								name: '插入视频',
+								title: '插入视频',
+								cssRules :'background-position: -320px -20px',
+								onclick:function () {
+									editor.execCommand(uiName);
+								}
+							});
+							editor.addListener('selectionchange', function () {
+								var state = editor.queryCommandState(uiName);
+								if (state == -1) {
+									btn.setDisabled(true);
+									btn.setChecked(false);
+								} else {
+									btn.setDisabled(false);
+									btn.setChecked(state);
+								}
+							});
+							return btn;
+						}, 20);
+						
+							$(function(){
+								var ue = UE.getEditor('content', ueditoroption);
+								$('#content').data('editor', ue);
+								$('#content').parents('form').submit(function() {
+									if (ue.queryCommandState('source')) {
+										ue.execCommand('source');
+									}
+								});
+							});
+				</script>
+				</div>
+			</div>
+			
+	 		</div>
+			</div>
+			 <div class="form-group">
+			 <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+			 <div class="col-sm-8">
+				<input name="submit" type="submit" value="提交" class="btn btn-primary span3" />
+				<input type="hidden" name="token" value="<?php  echo $_W['token'];?>" />
+			 </div> 
+			 </div>			
+		</form>
+	</div>
+</div>	
+<script type="text/javascript">
+<!--
+  var category = <?php  echo json_encode($children)?>;
+  kindeditor($('.richtext-clone'));
+//-->
+</script>
+<?php  } else if($op == 'display') { ?>
+<div style="padding:15px;">
+  <table class="table table-hover">
+    <thead class="navbar-inner">
+      <tr>
+        <th>序号</th>
+        <th>显示顺序</th>
+        <th>医生名称</th>
+        <th>所属医院</th>
+        <th>所属科室</th>
+        <th>医生职称</th>
+        <th>医生职务</th>
+        <th>医生描述</th>
+        <th>门诊时间</th>
+        <th>操作</th>
+  </tr>
+</thead>
+<?php  if(is_array($list)) { foreach($list as $item) { ?>
+<tr>
+  <td><?php  echo $item['id'];?></td>
+  <td><?php  echo $item['sort'];?></td>
+  <td><?php  echo $item['ser_name'];?></td>
+  <td><?php  echo $item['doc_id'];?></td>
+  <td><?php  echo $item['classify_name'];?></td>
+  <td><?php  echo $item['titles'];?></td>
+  <td><?php  echo $item['duty'];?></td>
+  <td><?php  echo $item['kbox'];?></td>
+  <td><?php  echo $item['srvtime'];?></td>
+  <td>
+    <a href="<?php  echo $this->createWebUrl('project',array('id' => $item['id'] ,'op' => 'post'))?>">编辑
+    </a>
+    <a href="<?php  echo $this->createWebUrl('project',array('id' => $item['id'],'op' => 'delete'))?>">删除
+    </a>
+  </td>
+</tr>
+<?php  } } ?>
+</table>
+</div>
+<?php  } ?>
+
+<?php (!empty($this) && $this instanceof WeModuleSite || 1) ? (include $this->template('common/footer', TEMPLATE_INCLUDEPATH)) : (include template('common/footer', TEMPLATE_INCLUDEPATH));?>

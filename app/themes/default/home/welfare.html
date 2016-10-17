@@ -1,0 +1,117 @@
+{template 'common/header'}
+<article class="fl-container">
+    <!--<section class="banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/adv.jpg" alt=""/></div>
+                <div class="swiper-slide"><img src="images/adv.jpg" alt=""/></div>
+            </div>
+        </div>
+    </section>-->
+    <section class="zunxiang">
+        <h1>—— 我的尊享 ——</h1>
+        <p>上海普瑞眼科医院是经上海市卫生局批准设立的眼科专科医院，是集医疗、科研、教学为一体的大型综合性眼术机构、眼科设备公司保持科研同步、
+            教学为一体的大型综合性眼术机构、眼科设备公司保持科研同步、</p>
+    </section>
+    <section class="fuli">
+        <h1>—— 我的福利 ——</h1>
+        <div class="join">
+            <img src="{$_W['siteroot']}app/themes/default/images/fl_img.jpg" alt=""/>
+            <a href="#">您还没有参加会议哦 <br/>
+                选择下面的会议进行报名吧~
+            </a>
+        </div>
+    </section>
+
+    <section class="huodong">
+        <h1>—— 活动推荐 ——</h1>
+        <div class="adv">
+            <a href="#">
+                <img src="{$_W['siteroot']}app/themes/default/images/adv-2.jpg" alt=""/>
+            </a>
+            <h2>全飞秒激光治近视，国庆黄金周百人团购会</h2>
+            <p>普瑞眼科高端全飞秒，十分钟重获清晰视力。国庆黄金周期间，每天前10名预约患者，较高可享受9000元优惠。</p>
+            <p>0元近视治疗，国庆七天不间断！低首付、低利息激光治近视，国庆期间每天限1名，先到先得！</p>
+            <p>活动时间：2016年10月1日至7日</p>
+            <p>报名条件：近视200度以上，年龄18-40岁之间。</p>
+            <div class="detail">
+                <a href="#">查看详情</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="tickets">
+
+        <div class="ticket-type">
+            <h1>—— 代金券 ——</h1>
+            <a href="#"><img src="{$_W['siteroot']}app/themes/default/images/ticket-2.jpg" alt=""/></a>
+            <h2>代金券使用说明</h2>
+            <p>使用时间：***-***</p>
+            <p>使用地点：</p>
+        </div>
+        <div class="ticket-type">
+            <h1>—— 代金券 ——</h1>
+            <a href="#"><img src="{$_W['siteroot']}app/themes/default/images/ticket.jpg" alt=""/></a>
+            <h2>代金券使用说明</h2>
+            <p>使用时间：***-***</p>
+            <p>使用地点：</p>
+        </div>
+
+    </section>
+
+</article>
+{template 'common/footer'}
+<script type="text/javascript" src="http://abc.prykweb.com/js/public/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://abc.prykweb.com/js/public/swiper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrapValidator.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script>
+    $(function(){
+        var banner = new Swiper('.banner .swiper-container');
+        $('.form-datatime').datetimepicker(
+                {
+                    minView: "month", //选择日期后，不会再跳转去选择时分秒
+                    format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式
+                    language: 'zh-CN', //汉化
+                    autoclose:true //选择日期后自动关闭
+                }
+        );
+
+        $('.form').bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                username: {
+                    message: 'The username is not valid',
+                    validators: {
+                        notEmpty: {
+                            message: '姓名不能为空'
+                        }
+                    }
+                },
+                phone: {
+                    message: 'The username is not valid',
+                    validators: {
+                        notEmpty: {
+                            message: '手机号不能为空'
+                        },
+                        regexp: {/* 只需加此键值对，包含正则表达式，和提示 */
+                            regexp: /^((\d3)|(\d{3}\-))?13[0-9]\d{8}|15[89]\d{8}/,
+                            message: '手机号格式错误'
+                        }
+                    }
+                }
+            }
+        });
+    })
+
+
+</script>
+</body>
+</html>

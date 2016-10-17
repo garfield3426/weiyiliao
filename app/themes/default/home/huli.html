@@ -1,0 +1,211 @@
+{template 'common/header'}
+<article class="hl-container">
+    <!--<section class="banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/adv.jpg" alt=""/></div>
+                <div class="swiper-slide"><img src="images/adv.jpg" alt=""/></div>
+            </div>
+        </div>
+    </section>-->
+    <section class="items">
+        <h1>—— 学组介绍 ——</h1>
+        <ul>
+            <li>
+                <a href="#">
+                    <i class="js"></i>
+                    <div class="">近视</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="gdjs"></i>
+                    <div class="">高度近视</div>
+                </a>
+            </li>
+            <li class="side">
+                <a href="#">
+                    <i class="bnz"></i>
+                    <div class="">白内障</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="xrs"></i>
+                    <div class="">小儿斜弱视</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="qgy"></i>
+                    <div class="">青光眼</div>
+                </a>
+            </li>
+            <li class="side">
+                <a href="#">
+                    <i class="ydb"></i>
+                    <div class="">眼底病</div>
+                </a>
+            </li>
+            <li >
+                <a href="#">
+                    <i class="yzx"></i>
+                    <div class="">眼整形</div>
+                </a>
+            </li>
+            <li >
+                <a href="#">
+                    <i class="ldb"></i>
+                    <div class="">泪道病</div>
+                </a>
+            </li>
+            <li class="side">
+                <a href="#">
+                    <i class="jmb"></i>
+                    <div class="">角膜病</div>
+                </a>
+            </li>
+            <li >
+                <a href="#">
+                    <i class="ygpj"></i>
+                    <div class="">医院验光配镜</div>
+                </a>
+            </li>
+            <li >
+                <a href="#">
+                    <i class="zhyb"></i>
+                    <div class="">综合眼病</div>
+                </a>
+            </li>
+            <li class="side">
+                <a href="#">
+                    <i class="zxqt"></i>
+                    <div class="">咨询其他</div>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section class="questions">
+        <h1>—  爱眼知识讲堂 —</h1>
+        <ul>
+            <li>
+                <a href="#">1、高度近视会有遗传的可能吗？</a>
+            </li>
+            <li>
+                <a href="#">2、网友疑惑：为什么有些医生不做近视手术？</a>
+            </li>
+            <li>
+                <a href="#">3、近视度数为什么越长越高</a>
+            </li>
+            <li>
+                <a href="#">4、高度近视会有遗传的可能吗？</a>
+            </li>
+            <li>
+                <a href="#">5、网友疑惑：为什么有些医生不做近视手术？</a>
+            </li>
+            <li>
+                <a href="#">6、近视度数为什么越长越高</a>
+            </li>
+        </ul>
+    </section>
+    <section class="yuyue">
+        <h1>— 预约护眼小课堂 —</h1>
+
+        <form  method="post" class="form form-horizontal">
+            <div class="form-group">
+                <label for="name" class="col-xs-4 control-label">姓名:</label>
+                <div class="col-xs-8">
+                    <input id="name" type="text" name="username" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="age" class="col-xs-4 control-label">年龄:</label>
+                <div class="col-xs-8">
+                    <input id="age" type="text" name="age" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone" class="col-xs-4 control-label">预约电话:</label>
+                <div class="col-xs-8">
+                    <input id="phone" type="text" name="phone" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="date" class="col-xs-4 control-label">预约时间:</label>
+                <div class="col-xs-8">
+                    <input id="date" type="text" name="date" class="form-control form-datatime"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-6 col-xs-6">
+                    <button type="submit" class="btn btn-primary">提交预约</button>
+                </div>
+            </div>
+
+        </form>
+    </section>
+</article>
+{template 'common/footer'}
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrapValidator.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.form').bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                username: {
+                    message: 'The username is not valid',
+                    validators: {
+                        notEmpty: {
+                            message: '姓名不能为空'
+                        }
+                    }
+                },
+                phone: {
+                    message: 'The username is not valid',
+                    validators: {
+                        notEmpty: {
+                            message: '手机号不能为空'
+                        },
+                        regexp: {/* 只需加此键值对，包含正则表达式，和提示 */
+                            regexp: /^((\d3)|(\d{3}\-))?13[0-9]\d{8}|15[89]\d{8}/,
+                            message: '手机号格式错误'
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+    $('.form-datatime').datetimepicker(
+            {
+                minView: "month", //选择日期后，不会再跳转去选择时分秒
+                format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式
+                language: 'zh-CN', //汉化
+                autoclose:true //选择日期后自动关闭
+            }
+    );
+
+    var u = navigator.userAgent, app = navigator.appVersion;
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if (isiOS) {
+        $('input').focus(function () {
+           $('footer').hide();
+        });
+        $('input').blur(function () {
+            $('footer').show();
+        });
+    }
+
+</script>
+</body>
+</html>
