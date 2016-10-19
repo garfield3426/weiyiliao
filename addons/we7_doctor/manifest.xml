@@ -53,7 +53,9 @@
 			<entry title="规则列表2" do="rule2" state="ruledata2" direct="true" />
 		</rule>
 		<menu>
-			<entry title="医生列表" do="lists" state="lists" direct="false" />
+			<entry title="科室" do="classify" state="classify" direct="false" />
+			<entry title="医生" do="project" state="project" direct="false" />
+			<entry title="预约管理" do="orders" state="orders" direct="false" />
 		</menu>
 		<home>
 			<entry title="微站首页导航图标1" do="nevindex1" state="" direct="false" />
