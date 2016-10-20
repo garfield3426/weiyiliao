@@ -1,4 +1,5 @@
-{template 'common/header'}
+{template 'common/headers'}
+{template 'common/nav'}
 <section class="sec-banner"><img src="{$_W['siteroot']}app/themes/default/images/banner.jpg" alt=""></section>
 <article class="center-container">
     <!--<section class="banner">
@@ -13,37 +14,37 @@
     <section class="items">
         <ul>
             <li>
-                <a href="#">
+                <a href="{$_W['siteroot']}/app/index.php?i=3&c=mc&a=consume&#wechat_redirect">
                     <i class="qb"></i>
                     <div class="">我的钱包</div>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{$_W['siteroot']}/app/index.php?i=3&c=entry&do=myorder&m=ewei_shopping">
                     <i class="dd"></i>
                     <div class="">我的订单</div>
                 </a>
             </li>
             <li class="side">
-                <a href="#">
+                <a href="{$_W['siteroot']}app/index.php?i=3&c=entry&do=list&m=ewei_shopping&sort=0&sortb0=desc">
                     <i class="sc"></i>
                     <div class="">护理商城</div>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{$_W['siteroot']}/app/index.php?c=home&a=doc">
                     <i class="ys"></i>
                     <div class="">我的医生</div>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{$_W['siteroot']}/app/index.php?c=home&a=welfare">
                     <i class="fl"></i>
                     <div class="">我的福利</div>
                 </a>
             </li>
             <li class="side">
-                <a href="#">
+                <a href="index.php?c=home&a=pengyq">
                     <i class="pyq"></i>
                     <div class="">朋友圈</div>
                 </a>
@@ -73,7 +74,7 @@
         <h1>—— 活动推荐 ——</h1>
         <div class="adv">
             <a href="#">
-                <img src="images/adv-2.jpg" alt="">
+                <img src="{$_W['siteroot']}app/themes/default/images/adv-2.jpg" alt="">
             </a>
             <h2>全飞秒激光治近视，国庆黄金周百人团购会</h2>
             <p>普瑞眼科高端全飞秒，十分钟重获清晰视力。国庆黄金周期间，每天前10名预约患者，较高可享受9000元优惠。</p>
@@ -86,13 +87,7 @@
         </div>
     </section>
 </article>
-{template 'common/footer'}
-<script type="text/javascript" src="http://abc.prykweb.com/js/public/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="http://abc.prykweb.com/js/public/swiper.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/bootstrapValidator.js"></script>
-<script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
-<script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+{template 'common/footers'}
 <script>
     $(function(){
         var banner = new Swiper('.banner .swiper-container');

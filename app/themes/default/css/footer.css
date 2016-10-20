@@ -1,0 +1,21 @@
+footer{background: #333;overflow: hidden;position: fixed;left: 0;right: 0;bottom: 0;height: 58px;z-index: 99;}
+footer ul{overflow:hidden;padding:0px;}
+footer ul li{width: 25%;box-sizing: border-box;float: left;text-align: center;height: 58px;font-size: 14px;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+}
+footer ul li .icon{font-size: 20px;color: #fff;}
+footer ul li a{color: #fff;}
+footer ul li i{display: block;width: 36px;height: 26px;margin: 0 auto;}
+footer ul li .home{background: url("../images/home-w.png") no-repeat center;background-size: contain;}
+footer ul li.active .home{background: url("../images/home.png") no-repeat center;background-size: contain;}
+footer ul li .yy{background: url("../images/yy-w.png") no-repeat center;background-size: contain;}
+footer ul li.active .yy{background: url("../images/yy.png") no-repeat center;background-size: contain;}
+footer ul li .ys{background: url("../images/ys-w.png") no-repeat center;background-size: contain;}
+footer ul li.active .ys{background: url("../images/ys.png") no-repeat center;background-size: contain;}
+footer ul li .grzx{background: url("../images/grzx-w.png") no-repeat center;background-size: contain;}
+footer ul li.active .grzx{background: url("../images/grzx.png") no-repeat center;background-size: contain;}
