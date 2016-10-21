@@ -111,37 +111,11 @@ class We7_doctorModuleSite extends WeModuleSite {
 	public function doWebProject(){
 		global $_GPC,$_W;
 		load()->func('tpl');
+		load()->app('global');
 		$op = !empty($_GPC['op'])?$_GPC['op']:'display';
-		// 医院  职务  职称
-		$hosps=array(
-			1=>"兰州普瑞眼科医院",
-			2=>"成都普瑞眼科医院",
-			3=>"合肥普瑞眼科医院",
-			4=>"郑州普瑞眼科医院",
-			5=>"昆明普瑞眼科医院",
-			6=>"南昌普瑞眼科医院",
-			7=>"上海普瑞眼科医院",
-			8=>"重庆普瑞眼科医院",
-			9=>"武汉普瑞眼科医院",
-			10=>"哈尔滨普瑞眼科医院",
-			11=>"北京华德医院",
-			12=>"山东亮康眼科医院",
-			13=>"西安普瑞眼科医院",
-			14=>"乌鲁木齐普瑞眼科医院"
-		);
-		$titles=array(
-			1=>"主任医师",
-			2=>"副主任医师",
-			3=>"主治医师",
-			4=>"住院医师"
-		);
-		$dutys=array(
-			1=>"院长",
-			2=>"副院长",
-			3=>"屈光专科主任",
-			4=>"白内障专科主任",
-			5=>"眼底病专科主任"
-		);
+		$hosps=global_hosps();//医院
+		$titles=global_titles();//职称
+		$dutys=global_dutys();//职务
 		if ($op == 'post') {
 			$classify = pdo_fetchAll("SELECT * FROM".tablename('bmhospital_classify')." WHERE weid='{$_W['weid']}'");
 			if (!empty($_GPC['id'])) {
@@ -226,6 +200,7 @@ class We7_doctorModuleSite extends WeModuleSite {
 	public function doMobileIndex(){
 		global $_W,$_GPC;
 		$id = intval($_GPC['id']);
+		$title = 'aaaaaa';
 		$posters = pdo_fetch("SELECT * FROM".tablename('bmhospital_poster')."WHERE weid='{$_W['weid']}' AND department_id='{$id}'");
 		$thumbs = unserialize($posters['thumb']);
 		$item = pdo_fetch("SELECT * FROM ".tablename('bmhospital_slide')." WHERE weid = :weid", array(':weid' => $_W['weid']));	
@@ -234,6 +209,8 @@ class We7_doctorModuleSite extends WeModuleSite {
 		$reply = pdo_fetch("SELECT * FROM".tablename('bmhospital_reply')."WHERE weid='{$_W['weid']}' and id={$id}");
 		//print_r($reply);exit;
 		$info_picurl = pdo_fetchcolumn("SELECT info_picurl FROM".tablename('bmhospital_reply')."WHERE weid='{$_W['weid']}' and id={$id}");
+		
+		
 		include $this->template('index');
 	}
 	public function doMobileDepartment(){
