@@ -6,7 +6,7 @@
 defined('IN_IA') or exit('Access Denied');
 load()->model('app');
 $multiid = intval($_GPC['t']);
-$title = '昆明近视手术|全飞秒|极速飞秒|我们是先进品牌！';
+
 if(empty($multiid)) {
 	load()->model('account');
 	$setting = uni_setting($_W['uniacid'], array('default_site'));
@@ -21,5 +21,4 @@ $_share['title'] = $share_tmp['title'];
 if (!empty($multiid)) {
 	isetcookie('__multiid', $multiid);
 }
-
 template('home/home');

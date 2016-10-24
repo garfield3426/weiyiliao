@@ -62,7 +62,7 @@
                 </a>
             </li>
             <li class="side">
-                <a href="#">
+                <a href="index.php?i=3&c=mc&a=profile&do=address">
                     <i class="sz"></i>
                     <div class="">设置</div>
                 </a>
@@ -84,6 +84,14 @@
             <div class="detail">
                 <a href="#">查看详情</a>
             </div>
+        </div>
+    </section>
+    <section class="packet-layer">
+        <div class="layer-img-txt">
+            <img src="themes/default/images/layer.png" alt=""/>
+        </div>
+        <div class="layer-img">
+            <img src="themes/default/images/hb-2.png" alt=""/>
         </div>
     </section>
 </article>
@@ -133,6 +141,14 @@
     })
 
 
+</script>
+<script type="text/javascript">
+    $('.packet').click(function(){
+        $('.packet-layer').css('display','block');
+    });
+    $('.packet-layer').click(function(){
+        $(this).css('display','none');
+    })
 </script>
 </body>
 </html>

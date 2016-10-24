@@ -3,14 +3,18 @@
  * [WeEngine System] Copyright (c) 2014 WE7.CC
  * WeEngine is NOT a free software, it under the license terms, visited http://www.we7.cc/ for more details.
  */
-define('IN_MOBILE', true);
-
+header("Content-type:text/html;charset=utf-8");
+define('IN_MOBILE', true);  
 require '../framework/bootstrap.inc.php';
 load()->app('common');
 load()->app('template');
 load()->model('app');
+  
 require IA_ROOT . '/app/common/bootstrap.app.inc.php';
-
+if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') === false ) {
+	require _forward("home", "error");
+    exit();
+} 
 $acl = array(
 	'home' => array(
 		'default' => 'home',

@@ -100,7 +100,10 @@ footer ul li.active .ys{background: url("../images/ys.png") no-repeat center;bac
 footer ul li .grzx{background: url("../images/grzx-w.png") no-repeat center;background-size: contain;}
 footer ul li.active .grzx{background: url("../images/grzx.png") no-repeat center;background-size: contain;}
 
-
+#callphone {position: fixed;bottom: 80px;right: 10px;width: 54px;height: 54px;border-radius: 50%;z-index: 9;text-align: center;border: 2px solid #e3e3e3;line-height: 70px;background: #fff;}
+#callphone a{line-height: 20px;display: inline-block;}
+#callphone a i{font-size: 26px;margin-right: 0 !important;}
+#callphone a p{font-size: 14px;}
 /*Ê×Ò³*/
 .index-catg{overflow: hidden;}
 .index-catg ul li{width: 50%;box-sizing: border-box;padding: 5px;float: left;position: relative;}
@@ -135,6 +138,8 @@ footer ul li.active .grzx{background: url("../images/grzx.png") no-repeat center
 .items ul li i.bk{background-image: url("../images/bk.png");}
 .items ul li i.sz{background-image: url("../images/sz.png");}
 .sec-banner.packet{padding: 10px 0;}
+.center-container .packet-layer{display: none;position: fixed;top: 0;left: 0;right: 0;bottom: 0;background: rgba(76,76,76,0.8)}
+.center-container .packet-layer .layer-img{position: absolute;bottom: 20%;left: 0;right: 0;}
 
 
 
@@ -356,12 +361,13 @@ section h1{text-align: center;padding: 10px 0;}
     .doc-tab ul li .rt{font-size: 10px;}
 }
 
+.doc-tab ul li
 @media screen and (min-width: 360px){
     .yy-intro .part .part-text{padding-top: 10px;font-size: 14px;}
 }
 
 @media screen and (max-width: 320px){
     header .logo{width: 95px;margin-right: 10px;}
-
+    .doc-tab ul li{width: 48%;flex:0 0 45%;-webkit-flex: 0 0 45%;}
 }
 
