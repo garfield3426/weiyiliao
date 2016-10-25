@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="0.6">
+	<application setting="true">
+		<name><![CDATA[微营销_摘镜]]></name>
+		<identifie><![CDATA[we7_zhaijing]]></identifie>
+		<version><![CDATA[0.1]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[摘镜微营销活动]]></ability>
+		<description><![CDATA[摘镜微营销活动]]></description>
+		<author><![CDATA[Garfield]]></author>
+		<url><![CDATA[http://bbs.we7.cc/]]></url>
+	</application>
+	<platform>
+		<subscribes>
+			<message type="text" />
+			<message type="image" />
+			<message type="voice" />
+			<message type="video" />
+			<message type="shortvideo" />
+			<message type="location" />
+			<message type="link" />
+			<message type="subscribe" />
+			<message type="unsubscribe" />
+			<message type="qr" />
+			<message type="trace" />
+			<message type="click" />
+			<message type="view" />
+			<message type="merchant_order" />
+		</subscribes>
+		<handles>
+			<message type="image" />
+			<message type="voice" />
+			<message type="video" />
+			<message type="shortvideo" />
+			<message type="location" />
+			<message type="link" />
+			<message type="subscribe" />
+			<message type="qr" />
+			<message type="trace" />
+			<message type="click" />
+			<message type="merchant_order" />
+			<message type="text" />
+		</handles>
+		<rule embed="true" />
+		<card embed="false" />
+	</platform>
+	<bindings>
+		<cover>
+			<entry title="活动入口" do="enter" state="enter_dada" direct="false" />
+		</cover>
+		<rule>
+			<entry title="规则列表" do="rule" state="rule_data" direct="false" />
+		</rule>
+		<menu>
+			<entry title="管理中心导航菜单" do="center" state="center_data" direct="false" />
+		</menu>
+		<home>
+			<entry title="微站首页导航图标" do="nav" state="nav_data" direct="false" />
+		</home>
+		<profile>
+			<entry title="微站个人中心导航" do="profile" state="" direct="false" />
+		</profile>
+		<shortcut>
+			<entry title="微站快捷功能导航" do="shortcut" state="" direct="false" />
+		</shortcut>
+		<function>
+			<entry title="微站独立功能" do="func" state="" direct="false" />
+		</function>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>

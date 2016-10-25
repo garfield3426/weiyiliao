@@ -111,7 +111,7 @@ class We7_doctorModuleSite extends WeModuleSite {
 	public function doWebProject(){
 		global $_GPC,$_W;
 		load()->func('tpl');
-		load()->app('global');
+		load()->func('doc');
 		$op = !empty($_GPC['op'])?$_GPC['op']:'display';
 		$hosps=global_hosps();//医院
 		$titles=global_titles();//职称
