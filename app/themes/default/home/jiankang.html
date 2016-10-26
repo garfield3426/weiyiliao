@@ -1,0 +1,141 @@
+{template 'common/headers'}
+{template 'common/nav'}
+<article class="jk-container">
+    <section class="jk-nav">
+        <ul>
+            <li class="dl">
+                <a href="#">
+                    <i></i>
+                    1套神秘大礼
+                </a>
+            </li>
+            <li class="yspy">
+                <a href="#">
+                    <i></i>
+                    10位眼科医生朋友
+                </a>
+            </li>
+            <li class="vip">
+                <a href="#">
+                    <i></i>
+                    VIP感恩礼遇
+                </a>
+            </li>
+            <li class="rmq">
+                <a href="#">
+                    <i></i>
+                    同城人脉圈
+                </a>
+            </li>
+            <li class="jkzq">
+                <a href="#">
+                    <i></i>
+                    健康又赚钱
+                </a>
+            </li>
+            <li class="gysy">
+                <a href="#">
+                    <i></i>
+                    一起参与公益事业
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section class="jk-zf">
+
+        <form id='zf-form' action="" class="form" method="post">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon ">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </div>
+                    <input id="name" type="text" name="username" class="form-control" placeholder="请输入你朋友的姓名"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon ">
+                        <span class="glyphicon glyphicon-phone-alt"></span>
+                    </div>
+                    <input id="phone" type="text" name="phone" class="form-control" placeholder="请输入你朋友的电话"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon ">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </div>
+                    <input id="company" type="text" name="company" class="form-control" placeholder="请输入你朋友的地址"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-block" >立即支付</button>
+            </div>
+            <div class='modal fade zf-modal'>
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">请输入支付密码</div>
+                        <div class="modal-body">
+                            <h3>营销策划</h3>
+                            <p class="total">¥0.00</p>
+                            <hr/>
+                            <p class="linq">
+                                <a href="#">
+                                    <i></i>零钱
+                                    <b></b>
+                                </a>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="pwd-box">
+                                <input type="tel" maxlength="6" class="pwd-input" id="pwd-input">
+                                <div class="fake-box">
+                                    <input type="password" readonly="">
+                                    <input type="password" readonly="">
+                                    <input type="password" readonly="">
+                                    <input type="password" readonly="">
+                                    <input type="password" readonly="">
+                                    <input type="password" readonly="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+        <div class="jk-zf-tips">
+            <p><i class="circle"></i>如果有地址，您的朋友将会收到您送出的惊喜</p>
+            <p><i class="circle"></i>如果没有地址，也没关系，支付完成把信息发给你的好友，您的好友可以自行完善信息</p>
+        </div>
+    </section>
+    <section class="callphone">
+        <a href="tel:xx">
+            <i class="icon iconfont">&#xe607;</i>
+            <p>预约</p>
+        </a>
+    </section>
+</article>
+{template 'common/footers'}
+<script type="text/javascript">
+    var $input = $(".fake-box input");
+    $("#pwd-input").on("input", function() {
+        var pwd = $(this).val().trim();
+        for (var i = 0, len = pwd.length; i < len; i++) {
+            $input.eq("" + i + "").val(pwd[i]);
+        }
+        $input.each(function() {
+            var index = $(this).index();
+            if (index >= len) {
+                $(this).val("");
+            }
+        });
+        if (len == 6) {
+            //执行其他操作
+            alert('ok');
+            $('.zf-modal').modal('hide');
+        }
+    });
+</script>
+</body>
+</html>

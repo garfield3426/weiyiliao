@@ -20,7 +20,9 @@
             <ul>
                 {loop $docs $index $row}
                 <li>
-                    <a href="#"><img src="{$_W['siteroot']}attachment/{$row['classify_picurl']}" alt=""/></a>
+                    <a href="index.php?c=home&a=doc-detail&id={$row['id']}">
+                    <img src="{$_W['siteroot']}attachment/{$row['classify_picurl']}" alt=""/>
+                    </a>
                     <div>
                         <p>
                             <strong class="name">{$row['ser_name']}</strong>

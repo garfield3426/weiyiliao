@@ -1,0 +1,23 @@
+{template 'common/headers'}
+
+<article class="ewm">
+    <section class="ewm-header">
+        我推荐昆明普瑞眼科掌上眼科医生
+    </section>
+    <section class="ewm-title">
+        <h1>普瑞眼科  用爱传递光明</h1>
+        <h2>没有光明就没有一切</h2>
+        <img src="themes/default/images/ewm.jpg" alt=""/>
+    </section>
+</article>
+{template 'common/footers'}
+<script type="text/javascript">
+    $('.packet').click(function(){
+        $('.packet-layer').css('display','block');
+    });
+    $('.packet-layer').click(function(){
+        $(this).css('display','none');
+    })
+</script>
+</body>
+</html>

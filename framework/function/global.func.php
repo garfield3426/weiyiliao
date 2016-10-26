@@ -334,7 +334,7 @@ function murl($segment, $params = array(), $noredirect = true, $addhost = false)
 }
 
 
-function pagination($total, $pageIndex, $pageSize = 15, $url = '', $context = array('before' => 5, 'after' => 4, 'ajaxcallback' => '')) {
+function pagination($total, $pageIndex, $pageSize = 15, $url = '', $context = array('before' => 5, 'after' => 4, 'ajaxcallback' => '', 'callbackfuncname' => '')) {
 	global $_W;
 	$pdata = array(
 		'tcount' => 0,
@@ -349,7 +349,11 @@ function pagination($total, $pageIndex, $pageSize = 15, $url = '', $context = ar
 	if ($context['ajaxcallback']) {
 		$context['isajax'] = true;
 	}
-
+	
+	if ($context['callbackfuncname']) {
+		$callbackfunc = $context['callbackfuncname'];
+	}
+	
 	$pdata['tcount'] = $total;
 	$pdata['tpage'] = (empty($pageSize) || $pageSize < 0) ? 1 : ceil($total / $pageSize);
 	if ($pdata['tpage'] <= 1) {
@@ -450,7 +454,7 @@ function tomedia($src, $local_path = false){
 	if (strexists($t, 'https://mmbiz.qlogo.cn') || strexists($t, 'http://mmbiz.qpic.cn')) {
 		return url('utility/wxcode/image', array('attach' => $src));
 	}
-	if (strexists($t, 'http://') || strexists($t, 'https://')) {
+	if (strexists($t, 'http://') || strexists($t, 'https://') || substr($t, 0, 2) == '//') {
 		return $src;
 	}
 	if ($local_path || empty($_W['setting']['remote']['type']) || file_exists(IA_ROOT . '/' . $_W['config']['upload']['attachdir'] . '/' . $src)) {

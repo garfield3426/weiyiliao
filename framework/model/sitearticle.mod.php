@@ -24,9 +24,9 @@ function site_article_hote($limit = 5) {
 	return $news;
 }
 
-function site_article_limite($pcate=4,$limit = 6){
-	$limit = intval($limit);
-	$news = pdo_fetchall('SELECT * FROM' . tablename('site_article') . ' WHERE pcate=' . $pcate . ' ORDER BY displayorder DESC,id DESC LIMIT ' . $limit, array(), 'id');
+function site_article_limit($pcate=4,$limit = 6){
+ 	$limit = intval($limit);
+	$news = pdo_fetchall('SELECT * FROM ' . tablename('site_article') . ' WHERE pcate=' . $pcate . ' ORDER BY displayorder DESC,id DESC LIMIT ' . $limit, array(), 'id');
 	return $news;
 }
 

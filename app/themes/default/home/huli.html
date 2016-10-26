@@ -89,16 +89,16 @@
     <section class="questions">
         <h1>—  爱眼知识讲堂 —</h1>
         <ol>
-			{loop $result['news'] $row}
+			{loop $result $row}
             <li>
-                <a href="/km/app/index.php?c=home&a=article&id={$row['id']}" target="_blank">{$row['title']}</a>
+                <a href="index.php?c=home&a=article&id={$row['id']}" target="_blank">{$row['title']}</a>
             </li>
 			{/loop}
         </ol>
     </section>
     <section class="yuyue">
         <h1>— 预约护眼小课堂 —</h1>
-        <form  method="post" class="form form-horizontal" action="{$_W['siteroot']}app/index.php?c=entry&do=yysave&m=we7_doctor">
+        <form  method="post" class="form form-horizontal" action="index.php?c=entry&do=yysave&m=we7_doctor">
             <div class="form-group">
                 <label for="name" class="col-xs-4 control-label">姓名:</label>
                 <div class="col-xs-8">
