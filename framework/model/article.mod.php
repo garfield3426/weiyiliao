@@ -46,7 +46,7 @@ function article_news_all($filter = array(), $pindex = 1, $psize = 10) {
 	$condition = ' WHERE is_display = 1';
 	$params = array();
 	if(!empty($filter['title'])) {
-		$condition .= ' AND title LIKE :title';
+		$condition .= ' AND titie LIKE :title';
 		$params[':title'] = "%{$filter['title']}%";
 	}
 	if($filter['cateid'] > 0) {

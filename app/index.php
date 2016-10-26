@@ -9,12 +9,14 @@ require '../framework/bootstrap.inc.php';
 load()->app('common');
 load()->app('template');
 load()->model('app');
-  
+// checkauth();
 require IA_ROOT . '/app/common/bootstrap.app.inc.php';
-if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') === false ) {
-	require _forward("home", "error");
-    exit();
-} 
+
+//判断是否微信客户端打开
+// if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') === false ) {
+// 	require _forward("home", "error");
+//     exit();
+// } 
 $acl = array(
 	'home' => array(
 		'default' => 'home',
@@ -34,7 +36,11 @@ if(empty($multiid)) {
 	unset($setting);
 }
 
+
 $multi = pdo_fetch("SELECT * FROM ".tablename('site_multi')." WHERE id=:id AND uniacid=:uniacid", array(':id' => $multiid, ':uniacid' => $_W['uniacid']));
+
+// print_r($multi);
+// exit();
 $multi['site_info'] = @iunserializer($multi['site_info']);
 
 $styleid = !empty($_GPC['s']) ? intval($_GPC['s']) : intval($multi['styleid']);

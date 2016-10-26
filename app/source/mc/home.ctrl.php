@@ -8,8 +8,10 @@ load()->model('app');
 $dos = array('display', 'login_out');
 $do = in_array($do, $dos) ? $do : 'display';
 load()->func('tpl');
+
 $card_setting = pdo_get('mc_card', array('uniacid' => $_W['uniacid']));
 $uni_setting = pdo_get('uni_settings', array('uniacid' => $_W['uniacid']), array('exchange_enable'));
+
 $setting = uni_setting_load(array('uc', 'passport'), $_W['uniacid']);
 if($do == 'login_out') {
 	unset($_SESSION);
@@ -19,7 +21,9 @@ if($do == 'login_out') {
 	exit($logoutjs);
 }
 if ($do == 'display') {
+
 	$navs = app_navs('profile');
+
 	$modules = uni_modules();
 	$groups = $others = array();
 	$reg = '/^tel:(\d+)$/';

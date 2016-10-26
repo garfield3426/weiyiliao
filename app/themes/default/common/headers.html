@@ -2,77 +2,20 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>{if !empty($title)} {$title} {elseif !empty($_W['page']['title'])} {$_W['page']['title']}{/if}{if !empty($_W['page']['sitename'])}  {$_W['page']['sitename']}{else}  {$_W['account']['name']}{/if}{if IMS_FAMILY != 'x'} - 昆明普瑞眼科医院{/if}</title>
+    <title>{$title}-昆明普瑞眼科医院</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="{if empty($_W['page']['keywords'])}{if IMS_FAMILY != 'x'} 云南昆明眼科医院，近视眼手术，激光治近视，飞秒激光手术，昆明全飞秒激光手术{/if}{else}{$_W['page']['keywords']}{/if}" />
-	<meta name="description" content="{if empty($_W['page']['description'])}{if IMS_FAMILY != 'x'}云南全飞秒激光治近视，优选昆明普瑞眼科医院，云南昆明全力三级眼科医院，电话087163111756。我院安全开展屈光手术近万余例，长期致力于近视眼手术治疗、高度近视矫正等眼科医疗服务。普瑞眼科，昆明较好的眼科医院，是您值得信赖的眼科医院！{/if}{else}{$_W['page']['description']}{/if}" />
+	<meta name="description" content="{$description}" />
+	<meta name="keywords" content="{$keywords}" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
     <link rel="stylesheet" href="http://abc.prykweb.com/css/public/swiper.min.css"/>
-   <link rel="stylesheet" href="{$_W['siteroot']}app/themes/default/css/bootstrap.css"/>
-   <link rel="stylesheet" href="{$_W['siteroot']}app/themes/default/css/bootstrapValidator.css"/>
-   <link rel="stylesheet" href="{$_W['siteroot']}app/themes/default/css/bootstrap-datetimepicker.css"/>
-   <link rel="stylesheet" href="{$_W['siteroot']}app/themes/default/css/index.css"/>
-   <script type="text/javascript">
-	if(navigator.appName == 'Microsoft Internet Explorer'){
-		if(navigator.userAgent.indexOf("MSIE 5.0")>0 || navigator.userAgent.indexOf("MSIE 6.0")>0 || navigator.userAgent.indexOf("MSIE 7.0")>0) {
-			alert('您使用的 IE 浏览器版本过低, 推荐使用 Chrome 浏览器或 IE8 及以上版本浏览器.');
-		}
-	}
-	window.sysinfo = {
-		{if !empty($_W['uniacid'])}'uniacid': '{$_W['uniacid']}',{/if}
-		{if !empty($_W['acid'])}'acid': '{$_W['acid']}',{/if}{if !empty($_W['openid'])}'openid': '{$_W['openid']}',{/if}
-		{if !empty($_W['uid'])}'uid': '{$_W['uid']}',{/if}
-		'siteroot': '{$_W['siteroot']}',
-		'siteurl': '{$_W['siteurl']}',
-		'attachurl': '{$_W['attachurl']}',
-		'attachurl_local': '{$_W['attachurl_local']}',
-		'attachurl_remote': '{$_W['attachurl_remote']}',
-		{if defined('MODULE_URL')}'MODULE_URL': '{MODULE_URL}',{/if}
-		'cookie' : {'pre': '{$_W['config']['cookie']['pre']}'}
-	};
-	// jssdk config 对象
-	jssdkconfig = {php echo json_encode($_W['account']['jssdkconfig']);} || {};
-	// 是否启用调试
-	jssdkconfig.debug = false;
-	jssdkconfig.jsApiList = [
-		'checkJsApi',
-		'onMenuShareTimeline',
-		'onMenuShareAppMessage',
-		'onMenuShareQQ',
-		'onMenuShareWeibo',
-		'hideMenuItems',
-		'showMenuItems',
-		'hideAllNonBaseMenuItem',
-		'showAllNonBaseMenuItem',
-		'translateVoice',
-		'startRecord',
-		'stopRecord',
-		'onRecordEnd',
-		'playVoice',
-		'pauseVoice',
-		'stopVoice',
-		'uploadVoice',
-		'downloadVoice',
-		'chooseImage',
-		'previewImage',
-		'uploadImage',
-		'downloadImage',
-		'getNetworkType',
-		'openLocation',
-		'getLocation',
-		'hideOptionMenu',
-		'showOptionMenu',
-		'closeWindow',
-		'scanQRCode',
-		'chooseWXPay',
-		'openProductSpecificView',
-		'addCard',
-		'chooseCard',
-		'openCard',
-		'openAddress'
-	];
-	</script>
+    <link rel="stylesheet" href="themes/default/css/bootstrap.css"/>
+    <link rel="stylesheet" href="themes/default/css/bootstrapValidator.css"/>
+    <link rel="stylesheet" href="themes/default/css/bootstrap-datetimepicker.css"/>
+    <link rel="stylesheet" href="themes/default/css/index.css"/>
 	</head>
 <body {if $_GPC["a"]== 'huli'} class="hl-body" {/if}>

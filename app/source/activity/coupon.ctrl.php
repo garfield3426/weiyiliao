@@ -105,6 +105,7 @@ if($do == 'mine') {
 	$title = '我的卡券';
 	activity_coupon_give();
 	$coupon_records = activity_coupon_owned();
+	print_r($coupon_records);
 }
 if($do == 'use') {
 	$recid = intval($_GPC['recid']);

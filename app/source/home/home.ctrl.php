@@ -4,21 +4,11 @@
  * WeEngine is NOT a free software, it under the license terms, visited http://www.we7.cc/ for more details.
  */
 defined('IN_IA') or exit('Access Denied');
-load()->model('app');
-$multiid = intval($_GPC['t']);
+$title = '首页';
+$keywords='云南昆明眼科医院，近视眼手术，激光治近视，飞秒激光手术，昆明全飞秒激光手术';
+$description='云南全飞秒激光治近视，优选昆明普瑞眼科医院，云南昆明全力三级眼科医院，电话087163111756。我院安全开展屈光手术近万余例，长期致力于近视眼手术治疗、高度近视矫正等眼科医疗服务。普瑞眼科，昆明较好的眼科医院，是您值得信赖的眼科医院！';
 
-if(empty($multiid)) {
-	load()->model('account');
-	$setting = uni_setting($_W['uniacid'], array('default_site'));
-	$multiid = $setting['default_site'];
-}
-$title = $_W['page']['title'];
-$navs = app_navs('home', $multiid);
-$share_tmp = pdo_fetch('SELECT title,description,thumb FROM ' . tablename('cover_reply') . ' WHERE uniacid = :aid AND multiid = :id AND module = :m', array(':aid' => $_W['uniacid'], ':id' => $multiid, ':m' => 'site'));
-$_share['imgUrl'] = tomedia($share_tmp['thumb']);
-$_share['desc'] = $share_tmp['description'];
-$_share['title'] = $share_tmp['title'];
-if (!empty($multiid)) {
-	isetcookie('__multiid', $multiid);
-}
+
+// print_r($_W['openid']);
+
 template('home/home');
