@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="0.6">
+	<application setting="true">
+		<name><![CDATA[微砍价]]></name>
+		<identifie><![CDATA[we7_weikanjia]]></identifie>
+		<version><![CDATA[0.1]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[微砍价营销活动]]></ability>
+		<description><![CDATA[微砍价营销活动]]></description>
+		<author><![CDATA[Garfield]]></author>
+		<url><![CDATA[http://bbs.we7.cc/]]></url>
+	</application>
+	<platform>
+		<subscribes>
+			<message type="text" />
+			<message type="image" />
+			<message type="voice" />
+			<message type="video" />
+			<message type="shortvideo" />
+			<message type="location" />
+			<message type="link" />
+			<message type="subscribe" />
+			<message type="unsubscribe" />
+			<message type="qr" />
+			<message type="trace" />
+			<message type="click" />
+			<message type="view" />
+			<message type="merchant_order" />
+		</subscribes>
+		<handles>
+			<message type="image" />
+			<message type="voice" />
+			<message type="video" />
+			<message type="shortvideo" />
+			<message type="location" />
+			<message type="link" />
+			<message type="subscribe" />
+			<message type="qr" />
+			<message type="trace" />
+			<message type="click" />
+			<message type="merchant_order" />
+			<message type="text" />
+		</handles>
+		<rule embed="true" />
+		<card embed="false" />
+	</platform>
+	<bindings>
+		<cover>
+			<entry title="功能封面" do="cover" state="coverdata" direct="false" />
+		</cover>
+		<rule>
+			<entry title="规则列表" do="rule" state="ruledata" direct="false" />
+		</rule>
+		<menu>
+			<entry title="砍价活动管理" do="xkkjManage" state="" direct="false" />
+			<entry title="参数配置" do="xkkjSetting" state="" direct="false" />
+		</menu>
+		<home>
+			<entry title="微站首页导航" do="navindex" state="" direct="false" />
+		</home>
+		<profile>
+			<entry title="微站个人中心导航" do="profile" state="" direct="false" />
+		</profile>
+		<shortcut>
+			<entry title="微站快捷功能" do="shortcut" state="" direct="false" />
+		</shortcut>
+		<function>
+			<entry title="微站独立功能" do="func" state="" direct="false" />
+		</function>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[CREATE TABLE IF NOT EXISTS `ims_we7_weikanjia` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `rid` int(10) NOT NULL,
+  `weid` int(11) NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `starttime` int(10) DEFAULT NULL,
+  `endtime` int(10) DEFAULT NULL,
+  `kj_intro` text,
+  `p_name` varchar(100) DEFAULT NULL,
+  `p_kc` int(10) DEFAULT '0',
+  `p_y_price` float(10,2) DEFAULT NULL,
+  `p_low_price` float(10,2) DEFAULT NULL,
+  `yf_price` float(10,2) DEFAULT '0.00',
+  `p_pic` varchar(1000) DEFAULT NULL,
+  `p_preview_pic` varchar(1000) DEFAULT NULL,
+  `follow_url` varchar(1000) DEFAULT NULL,
+  `copyright` varchar(100) NOT NULL,
+  `new_title` varchar(200) DEFAULT NULL,
+  `new_icon` varchar(200) DEFAULT NULL,
+  `new_content` varchar(200) DEFAULT NULL,
+  `share_title` varchar(200) DEFAULT NULL,
+  `share_icon` varchar(200) DEFAULT NULL,
+  `share_content` varchar(200) DEFAULT NULL,
+  `p_url` varchar(1000) DEFAULT NULL,
+  `copyright_url` varchar(500) DEFAULT NULL,
+  `hot_tel` varchar(50) DEFAULT NULL,
+  `createtime` int(10) DEFAULT '0',
+  `kj_dialog_tip` varchar(1000) DEFAULT NULL,
+  `rank_tip` varchar(1000) DEFAULT NULL,
+  `u_fist_tip` varchar(1000) DEFAULT NULL,
+  `u_already_tip` varchar(1000) DEFAULT NULL,
+  `fk_fist_tip` varchar(1000) DEFAULT NULL,
+  `fk_already_tip` varchar(1000) DEFAULT NULL,
+  `kj_rule` text,
+  `pay_type` int(2) DEFAULT NULL,
+  `p_model` varchar(1000) DEFAULT NULL,
+  `kj_follow_enable` int(1) DEFAULT NULL,
+  `join_follow_enable` int(1) DEFAULT NULL,
+  `follow_dlg_tip` varchar(500) DEFAULT NULL,
+  `follow_btn_name` varchar(20) DEFAULT NULL,
+  `share_bg` varchar(300) DEFAULT NULL,
+  `rank_num` int(10) DEFAULT NULL,
+  `join_rank_num` int(10) DEFAULT NULL,
+  `v_user` int(10) DEFAULT NULL,
+  `zt_address` varchar(1000) DEFAULT NULL,
+  `one_kj_enable` int(1) DEFAULT NULL,
+  `day_help_count` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_we7_weikanjia_firend` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `kid` int(10) NOT NULL,
+  `uid` int(10) NOT NULL,
+  `openid` varchar(200) NOT NULL,
+  `nickname` varchar(100) NOT NULL,
+  `kd` int(2) DEFAULT NULL,
+  `kname` int(3) DEFAULT NULL,
+  `msg` varchar(500) DEFAULT NULL,
+  `ac` varchar(50) DEFAULT NULL,
+  `headimgurl` varchar(200) NOT NULL,
+  `k_price` float(10,2) DEFAULT NULL,
+  `kh_price` float(10,2) DEFAULT NULL,
+  `createtime` int(10) DEFAULT '0',
+  `ip` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=53244 DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_we7_weikanjia_order` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `kid` int(10) NOT NULL,
+  `uid` int(10) NOT NULL,
+  `uname` varchar(100) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `privnce` varchar(100) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `town` varchar(100) DEFAULT NULL,
+  `tel` varchar(50) DEFAULT NULL,
+  `zipcode` varchar(100) DEFAULT NULL,
+  `openid` varchar(200) DEFAULT NULL,
+  `outno` varchar(200) DEFAULT NULL,
+  `order_no` varchar(100) DEFAULT NULL,
+  `wxorder_no` varchar(100) DEFAULT NULL,
+  `y_price` float(10,2) DEFAULT NULL,
+  `kh_price` float(10,2) DEFAULT NULL,
+  `yf_price` float(10,2) DEFAULT NULL,
+  `total_price` float(10,2) DEFAULT NULL,
+  `pay_type` int(2) DEFAULT NULL,
+  `p_model` varchar(1000) DEFAULT NULL,
+  `status` int(1) DEFAULT NULL,
+  `wxnotify` varchar(200) DEFAULT NULL,
+  `notifytime` int(10) DEFAULT '0',
+  `createtime` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=415 DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_we7_weikanjia_setting` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) NOT NULL,
+  `appid` varchar(200) DEFAULT NULL,
+  `appsecret` varchar(200) DEFAULT NULL,
+  `mchid` varchar(100) DEFAULT NULL,
+  `shkey` varchar(100) DEFAULT NULL,
+  `createtime` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `ims_we7_weikanjia_user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `kid` int(10) NOT NULL,
+  `openid` varchar(200) NOT NULL,
+  `kd` int(2) DEFAULT NULL,
+  `nickname` varchar(100) NOT NULL,
+  `headimgurl` varchar(200) NOT NULL,
+  `price` float(10,2) DEFAULT NULL,
+  `ip` varchar(30) DEFAULT NULL,
+  `createtime` int(10) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3441 DEFAULT CHARSET=utf8;
+]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>
